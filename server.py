@@ -1,9 +1,10 @@
 from flask import Flask, jsonify
 from flask.ext.pymongo import PyMongo
-import json
+from flask.ext.cors import CORS
 import os
 
 app = Flask(__name__)
+CORS(app)
 
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 mongo = PyMongo(app)
